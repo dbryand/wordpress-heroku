@@ -91,7 +91,3 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
-
-//http://manovotny.com/fix-wordpress-admin-styles-not-loading/
-// Hack to supposedly fix load-styles.php not loading via https
-define('CONCATENATE_SCRIPTS', false);
