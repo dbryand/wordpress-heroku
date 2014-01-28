@@ -89,5 +89,18 @@ define('WP_DEBUG', false);
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
 
+//---------------------------------------------------------
+//---------------------------------------------------------
+// Xprove Begin
+
+// http://wordpress.org/plugins/ssl-insecure-content-fixer/faq/
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+  $_SERVER['HTTPS']='on';
+}
+
+// End Xprove
+//---------------------------------------------------------
+//---------------------------------------------------------
+
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
