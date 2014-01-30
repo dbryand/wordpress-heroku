@@ -1,16 +1,18 @@
 <?php
-query_posts( array(
+$args = array(
 	'ignore_sticky_posts' => 1,
 	'posts_per_page' => 20,
 	'post_type' => 'slide'
-));
+);
+$slides = new WP_Query( $args );	
 ?>
-<?php if(have_posts()) :?>
+
+<?php if($slides->post_count > 0) :?>
 <div class="slideshow">
 			
-	<div class="flexslider primary">		
+	<div class="flexslider">		
 		<ul class="slides">
-			<?php $i = 1; while (have_posts()) : the_post(); ?>
+			<?php $i = 1; while ($slides->have_posts()) : $slides->the_post(); ?>
 			<?php
 			//Get slide options			
 			$slide_background_img = wp_get_attachment_image_src(get_post_meta($post->ID, "_ttrust_slide_background_image", true), 'full');			
@@ -45,13 +47,22 @@ query_posts( array(
 	</div>	
 	
 	<div id="downButton"></div>
-	
+	<?php $slideshow_delay = of_get_option('ttrust_slideshow_delay'); ?>
+	<?php $autoPlay = ($slideshow_delay != "0") ? 1 : 0; ?>
+	<?php $slideshow_effect = "fade" ?>
+
+	<script type="text/javascript">
+	//<![CDATA[
+	jQuery(document).ready(function(){			
+		jQuery('#header .top .flexslider').flexslider({
+			slideshowSpeed: <?php echo $slideshow_delay . '000'; ?>,  
+			directionNav: true,
+			slideshow: <?php echo $autoPlay; ?>,				 				
+			animation: '<?php echo $slideshow_effect; ?>',
+			animationLoop: true
+		});  		
+	});
+	//]]>
+	</script>
 </div>
 <?php endif; ?>
-<?php wp_reset_query();?>
-
-
-
-
-
-

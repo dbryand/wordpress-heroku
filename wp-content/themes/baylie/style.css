@@ -2,7 +2,7 @@
 Theme Name: Baylie
 Theme URI: http://themetrust.com/baylie
 Description: A Bold Agency Theme
-Version: 1.0.3
+Version: 1.0.5
 Author: ThemeTrust
 Author URI: http://themetrust.com
 Tags: portfolio, responsive, blog, clean, minimal, white, two-columns, threaded-comments, translation-ready, custom-menus
@@ -491,14 +491,21 @@ a.action {
 	position: relative;		
 }
 
-#header .bottom{	
-	z-index: 400 !important;
+#header .bottom {	
 	position: relative;
 	width: 100%;
+}
+
+.gecko #header .bottom{	
+	z-index: 500;	
+}
+
+#header .bottom .surround {		
 	background: #fff;	
 	-moz-box-shadow: 0 0px 1px rgba(0,0,0,0.5);
 	-webkit-box-shadow: 0 0px 1px rgba(0,0,0,0.5);
-	box-shadow: 0 0px 1px rgba(0,0,0,0.5);	
+	box-shadow: 0 0px 1px rgba(0,0,0,0.5);
+	
 }
 
 #mainNav .tinynav {
@@ -529,11 +536,15 @@ a.action {
 	position:fixed;
 	top:0;
 	width: 100%;		
+	-webkit-backface-visibility:hidden;
+	z-index: 500;	
 }
 
 .admin-bar #header .stuck {	
 	top:28px;	
 }
+
+#stickyNavWrap {background: #000 !important; z-index: 300;}
 
 /* Top level navigation */
 
@@ -1508,12 +1519,14 @@ h2.extraSpacing { padding-top: 10px; }
 	overflow: hidden;
 	background: #000;
 	position: fixed;	
-	width: 100%;	
+	width: 100%;
+	height: 100%;	
 }
 
 .home .flexslider .slide {
 	position: fixed !important;
 	width: 100%;
+	height: 100%;
 }
 
 .home.blog .slideshow {
@@ -2161,6 +2174,10 @@ ol#commentslist {
 	background: #f6f6f6;
 	position: relative;	
 	z-index: 301;
+}
+
+.home.gecko #footer {
+	margin-top: -1px !important;
 }
 
 #googleMap iframe {

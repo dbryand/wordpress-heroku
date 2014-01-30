@@ -1,10 +1,11 @@
 <?php $featured_pages_links_enabled = of_get_option('ttrust_featured_pages_links_enabled'); ?>
+<?php $featured_page_count = intval(of_get_option('ttrust_featured_pages_count')); ?>
 <?php
 $args = array(
 	'ignore_sticky_posts' => 1,  
 	'meta_key' => '_ttrust_page_featured',
 	'meta_value' => true,  			
-	'posts_per_page' => 100,
+	'posts_per_page' => $featured_page_count,
 	'orderby' => 'menu_order',
 	'order' => 'ASC',
 	'post_type' => array(				
@@ -13,7 +14,7 @@ $args = array(
 );	
 ?>
 <?php $pages = new WP_Query( $args ); ?>
-<?php if($pages->post_count>0): ?>	
+<?php if($pages->post_count>0 && $featured_page_count > 0): ?>	
 <div id="featuredPages" class="full homeSection clearfix">		
 	<div class="flexslider normal">		
 		<ul class="slides">

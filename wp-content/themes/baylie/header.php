@@ -56,11 +56,11 @@
 
 <div id="container">	
 <div id="header">
-	<div class="top">
-	<?php if(is_front_page()):?>	
-		<?php if(of_get_option('ttrust_slideshow_enabled')) get_template_part( 'part-slideshow'); ?>		
-	<?php endif; ?>
+	<?php if(is_front_page() && of_get_option('ttrust_slideshow_enabled')) : ?>
+	<div class="top">		
+		<?php get_template_part( 'part-slideshow'); ?>		
 	</div>
+	<?php endif; ?>
 	<div class="bottom">
 	<div class="surround">
 	<div class="inside clearfix">

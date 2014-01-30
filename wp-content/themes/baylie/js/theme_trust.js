@@ -8,7 +8,7 @@ var gridGutter = 0;
 var thumbWidth = 350;
 var themeColumns = 3;
 var catptionOffset = -20;
-var stickyNav = jQuery('#header .bottom');
+var stickyNav = jQuery('#header .bottom .surround');
 var stickyNavOffsetTop;
 var topOffest = (jQuery('body').hasClass('admin-bar')) ? 28 : 0;
 var OS;
@@ -148,12 +148,14 @@ function initStickyNav() {
 			stickyNav.wrap('<div id="stickyNavWrap" />');
 		}
 		jQuery('#stickyNavWrap').css('height', stickyNav.height() );
+		jQuery('#header .bottom').css('height', stickyNav.height() );
 		stickyNavOffsetTop = stickyNav.offset().top;		
 	}	
 }
 
 function setStickyNav() {
-	jQuery('#stickyNavWrap').css('height', stickyNav.height() );	
+	jQuery('#stickyNavWrap').css('height', stickyNav.height() );
+	jQuery('#header .bottom').css('height', stickyNav.height() );	
 	var scrollTop = jQuery(window).scrollTop(); // our current vertical position from the top
 	
 	// if we've scrolled more than the navigation, add the 'stuck' class, otherwise remove the class
@@ -188,9 +190,11 @@ jQuery(window).load(function(){
 	projectThumbInit();	
 	projectFilterInit();
 	centerFlexCaption();
+	
 	if(!isMobile()){
 		initStickyNav()	
 		setStickyNav();
+		homeParallax();	
 	}	
 	
 	jQuery(".videoContainer").fitVids();	
@@ -204,11 +208,11 @@ jQuery(window).load(function(){
 		}		
 	});
 	
-	jQuery(window).scroll(function() {		
-		if(!isMobile() && jQuery(window).width() >700){
+	jQuery(window).scroll(function() {
+		if(!isMobile()){		
 			setStickyNav();
-			homeParallax();
-		}
+			homeParallax();	
+		}	
 	});
 	
 	//Set Down Arrow Button

@@ -239,7 +239,7 @@ function optionsframework_options() {
 						"type" => "text");
 
 	$options[] = array( "name" => __('Slideshow Effect','themetrust'),
-						"desc" => __('Select the type of transition effect for the slideshow.','themetrust'),
+						"desc" => __('Select the type of transition effect for slideshows created with the slideshow shortcode.','themetrust'),
 						"id" => "ttrust_slideshow_effect",
 						"std" => "fade",
 						"type" => "select",
