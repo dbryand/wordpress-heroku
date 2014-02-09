@@ -2736,3 +2736,9 @@ ol#commentslist {
 		font-size: 1em !important;		
 	}	
 }
+
+
+/* CUSTOM */
+#middle {
+  margin-top: 5px;
+}
