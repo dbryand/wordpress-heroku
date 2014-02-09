@@ -2737,8 +2737,23 @@ ol#commentslist {
 	}	
 }
 
-
 /* CUSTOM */
+.soliloquy-caption{  top: 0 !important;  bottom: auto !important;}
+.soliloquy-control-nav { margin: 0 auto !important; text-align: center !important; width: 100% !important; }
+.soliloquy-caption-inside {
+  background: none !important;
+  filter: none !important;
+  -ms-filter: none !important;
+  padding-top: 2em !important;
+}
+.soliloquy-caption-inside h1{
+  color: #135c81;
+  text-shadow: none;
+  font-size: 20em;
+  font-size: 2.5em;
+  line-height: 1.25em
+}
 #middle {
   margin-top: 5px;
+  background: #fafafa;
 }
