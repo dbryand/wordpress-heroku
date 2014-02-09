@@ -2753,7 +2753,9 @@ ol#commentslist {
   font-size: 2.5em;
   line-height: 1.25em
 }
+.page-template-page-pwyl-php #middle {
+  margin-top: 25px;
+}
 #middle {
-  margin-top: 5px;
   background: #fafafa;
 }
