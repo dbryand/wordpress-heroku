@@ -59,11 +59,6 @@
     <?php get_template_part( 'part-slideshow'); ?>
   </div>
   <?php endif; ?>
-  <?php if($header = get_post_meta($post->ID, 'header', true)) : ?>
-    <div class="top">
-        <img src="<?php echo($header) ?>" style="width: 100%; height: auto">
-    </div>
-  <?php endif; ?>
   <div class="bottom">
   <div class="surround">
   <div class="inside clearfix">
@@ -82,7 +77,13 @@
     </div>
 
   </div>
+
   </div>
   </div>
 </div>
 
+<?php if($header = get_post_meta($post->ID, 'header', true)) : ?>
+  <div class="top">
+      <img src="<?php echo($header) ?>" style="width: 100%; height: auto">
+  </div>
+<?php endif; ?>
