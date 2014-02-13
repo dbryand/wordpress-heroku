@@ -15,8 +15,8 @@ wp_enqueue_script('jquery');
 define('KENTO_PRICING_PLUGIN_PATH', WP_PLUGIN_URL . '/' . plugin_basename( dirname(__FILE__) ) . '/' );
 wp_enqueue_style('kento-pricing-table-style', KENTO_PRICING_PLUGIN_PATH.'css/style.css');
 
-wp_enqueue_script('kpt_ajax_js', plugins_url( '/js/kpt-ajax.js' , __FILE__ ) , array( 'jquery' ));
-wp_localize_script( 'kpt_ajax_js', 'kpt_ajax', array( 'kpt_ajaxurl' => admin_url( 'admin-ajax.php')));
+//wp_enqueue_script('kpt_ajax_js', plugins_url( '/js/kpt-ajax.js' , __FILE__ ) , array( 'jquery' ));
+//wp_localize_script( 'kpt_ajax_js', 'kpt_ajax', array( 'kpt_ajaxurl' => admin_url( 'admin-ajax.php')));
 
 
 
