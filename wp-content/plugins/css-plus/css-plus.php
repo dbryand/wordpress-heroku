@@ -2,8 +2,8 @@
 /*
 Plugin Name: CSS Plus
 Plugin URI: http://pauloklixto.com/2012/07/16/css-plus-wordpress-plugin-2/
-Description: Add CSS box in your pages, posts or custom posts.
-Version: 1.4.3
+Description: Add CSS and SCSS box in your pages, posts or custom posts.
+Version: 1.4.4
 Author: Paulo E. Calixto
 Author URI: http://pauloklixto.com
 License: GPL2
@@ -48,7 +48,7 @@ $CssPlus = new CssPlus; {
 	if ( trim(css_plus_key_get_var()) == 'post.php' || trim(css_plus_key_get_var()) == 'post-new.php') {
 		
 		##
-		# CodeMirror Version 3.14
+		# CodeMirror Version 3.19
 		# Design 1.4
 		##
 
@@ -152,21 +152,23 @@ $CssPlus = new CssPlus; {
 	function css_plus_plugin_func( $post_type ) { if ( ! current_user_can( 'administrator' ) ) return;
 	?>
 		<p>
-			<div class="menu">
-				<h3><?php _e('CSS', 'css-plus') ?></h3>
+            <h3 class="hndle"><?php _e('CSS', 'css-plus') ?></h3>
+			<!--<div class="menu">
+				<h3></h3>
 				<div class="menu-itens">
 					<a target="_black" href="http://twitter.com/PauloKlixto" class="cp-ico cp-twitter"></a>
-					<!--<span class="cp-ico cp-gear"></span>-->
-					<!--<span class="cp-ico cp-more"></span>-->
+					<!--<span class="cp-ico cp-gear"></span>
+					<!--<span class="cp-ico cp-more"></span>
 				</div>
 				<span class="clear"></span>
-			</div>
-	  		<textarea id="code" name="css_code" placeholder="Insert your CSS code here"><?php echo get_post_meta( $post_type->ID, '_css_code', true ); ?></textarea>
+			</div>-->
+	  		<textarea id="code" name="css_code" placeholder="Insert your SCSS code here"><?php echo get_post_meta( $post_type->ID, '_css_code', true ); ?></textarea>
 	  		<script type="text/javascript">
 				  var editor = CodeMirror.fromTextArea(
 				  	document.getElementById("code"), {  
-				  		lineNumbers: true, 
-				  		theme: "solarized dark", 
+				  		lineNumbers: true,
+                        mode: "text/x-scss", 
+				  		theme: "solarized light", 
 				  		lineWrapping: true,  
 				  		onCursorActivity: function() {    
 				  			editor.setLineClass(hlLine, null, null);    
@@ -201,6 +203,11 @@ $CssPlus = new CssPlus; {
 		}
 	 
 	}
+
+    //require_once("sass/SassParser.php");
+    //$sass = new SassParser(array('style'=>'nested', 'ugly'=>'compressed', 'debug'=>true));
+    //$css = $sass->toCss('path/to/sass/sourcefile.sass');
+
 	add_action('wp_head', 'css_plus_engine');
 	function css_plus_engine() { 
 		if (trim (get_post_meta( $GLOBALS['post']->ID, '_css_code', true )) != "" ){ 
