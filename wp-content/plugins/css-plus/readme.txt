@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: admin, posts, page, css, style, stylesheet, stylesheets, personal style, frontend, front, html style, best css, plus
 Requires at least: 3.0
 Tested up to: 3.5.2
-Stable tag: 1.4.4
+Stable tag: 1.4.3
 
 CSS Plus is a plugin that adds a css editor in all posts, pages and custom posts.
 
@@ -91,12 +91,8 @@ If you have read and tried the above and you are still having problems, then, pl
 
 == Change Log ==
 
-= 1.4.4 =
-* Visual clean;
-* Javascript flaws fixed.
-
 = 1.4.3 =
-* Trainling Whitespace.
+* Trainling Whitespace
 
 = 1.4.2 =
 * Bugfix - 3 flaws fixed - <a href="http://cssplusplugin.wordpress.com/2013/04/02/i-lost-my-css-in-first-update-and-now">More information</a>;
