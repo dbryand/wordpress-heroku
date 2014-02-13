@@ -2761,8 +2761,6 @@ ol#commentslist {
 .page-template-page-pwyl-php #middle {
   margin-top: 25px;
 }
-#middle {
+#pageHead, #middle, #footer {
   background: #fafafa;
 }
-
-
